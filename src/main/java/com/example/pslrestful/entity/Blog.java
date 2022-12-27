@@ -2,6 +2,7 @@ package com.example.pslrestful.entity;
 
 //import com.example.memorestful.dto.MemoRequestDto;
 import com.example.pslrestful.dto.BlogRequestDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,14 +27,29 @@ public class Blog extends Timestamped {
     private String contents; // 작성 내용
 
     @Column(nullable = false)
+    @JsonIgnore
     private String pwd; // 글 작성 비밀번호
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    @JsonIgnore
     private Boolean success; // 글 작성 비밀번호
+
+
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
 
     public String getPwd() {
         return pwd;
     }
+
+
 
     public Blog(String username, String title, String contents, String pwd) {
         this.username = username;

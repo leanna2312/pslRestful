@@ -1,6 +1,7 @@
 package com.example.pslrestful.controller;
 
 import com.example.pslrestful.dto.BlogRequestDto;
+import com.example.pslrestful.dto.SuccessDto;
 import com.example.pslrestful.entity.Blog;
 import com.example.pslrestful.service.BlogService;
 import lombok.RequiredArgsConstructor;
@@ -38,19 +39,20 @@ public class BlogController {
 
     //선택된 글 RUD
     @GetMapping("/api/posts/{id}")
-    public Optional<Blog> getBlog(@PathVariable Long id) { //Optional<Blog>
+    public Blog getBlog(@PathVariable Long id) { //Optional<Blog>
         return memoService.getBlog(id);
     } // 특정 글만 불러오기
 
 
-//    @PutMapping("/api/posts/{id}")
-//    public Blog updateBlog(@PathVariable Long id, @RequestBody BlogRequestDto requestDto) {
-//        return memoService.update(id, requestDto);
-//    }
+    @PutMapping("/api/posts/{id}")
+    public Blog updateBlog(@PathVariable Long id, @RequestBody BlogRequestDto requestDto) {
+        return memoService.update(id, requestDto);
+    }
 
-//    @DeleteMapping("/api/posts/{id}")
-//    public Boolean deleteBlog(@PathVariable Long id, @PathVariable String pwd){
-//        return memoService.deleteBlog(id,pwd);
-//    } // 글 삭제 시 비밀번호 기입
+    @DeleteMapping("/api/posts/{id}")
+    public SuccessDto deleteBlog(@PathVariable Long id, @RequestBody BlogRequestDto requestDto){
+        String pwd = requestDto.getPwd();
+        return memoService.deleteBlog(id,pwd);
+    } // 글 삭제 시 비밀번호 기입
 
 }
