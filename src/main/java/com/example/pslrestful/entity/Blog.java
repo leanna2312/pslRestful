@@ -32,7 +32,7 @@ public class Blog extends Timestamped {
 
     @Column(nullable = true)
     @JsonIgnore
-    private Boolean success; // 성공여부 테스트 코드
+    private Boolean success; // 성공여부 테스트코드
 
 
 
