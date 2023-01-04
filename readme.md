@@ -1,9 +1,9 @@
 PROJECT INITIALIZATION
 
--JPA
--WEB
--LOMBOK
--Thymeleaf
--H2
+-JPA \
+-WEB \
+-LOMBOK \
+-Thymeleaf \
+-H2 \
 
 
