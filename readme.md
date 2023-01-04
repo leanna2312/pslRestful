@@ -4,6 +4,6 @@ PROJECT INITIALIZATION
 -WEB \
 -LOMBOK \
 -Thymeleaf \
--H2 \
+-H2 
 
 
